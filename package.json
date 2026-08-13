@@ -1,6 +1,6 @@
 {
   "name": "@hraness/types",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small TypeScript utility-type foundation.",
   "license": "MIT",
   "type": "module",
@@ -45,11 +45,11 @@
   },
   "dependencies": {
     "@total-typescript/ts-reset": "^0.6.1",
-    "@types/node": "^26.2.0",
     "type-fest": "^5.7.0"
   },
   "devDependencies": {
     "@types/bun": "^1.3.14",
+    "@types/node": "^26.2.0",
     "typescript": "^6.0.3"
   },
   "publishConfig": {
