@@ -17,6 +17,7 @@
 - Use Bun 1.3.14 for repository commands.
 - Follow `WRITING.md` for internal prose and `STYLE.md` for public prose.
 - Apply unreasonably robust programming when agent work is cheap. Prefer coherent cross-file correctness and focused deterministic evidence to a knowingly weaker design.
+- Deliver changes to `main` through a current-head pull request. Keep the stable `Required` CI job green, resolve every review thread, and serialize merges. Human approval stays optional while one regular maintainer would otherwise self-review. Never force-push or bypass the gate.
 - Keep `@hraness/types` runtime-free. Public entrypoints contain declarations only.
 - Re-export stable general-purpose utility types from `type-fest`; add a local type only when it expresses a broadly reusable invariant that `type-fest` does not already provide.
 - Keep `@hraness/types/reset` opt-in and preserve its strict ambient behavior.
