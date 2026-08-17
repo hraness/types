@@ -32,3 +32,17 @@ jobs:
             exit 1
           fi
       - run: bun pm pack --dry-run --ignore-scripts
+
+  required:
+    name: Required
+    if: always()
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require every blocking job
+        env:
+          CHECK: ${{ needs.check.result }}
+        run: |
+          set -euo pipefail
+          [[ "$CHECK" == success ]]
