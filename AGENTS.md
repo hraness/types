@@ -32,3 +32,7 @@
 - Treat this repository as the complete project. Files and Git prose may use only its public names, paths, commands, and examples.
 - Run `bun run check` before handing off a change.
 - Treat a `v*` tag as a release request. Keep the tag equal to `v<package.json version>` on `main`, use strictly increasing stable versions, and verify the checks-gated immutable GitHub Release before creating another tag.
+
+<!-- hra-local-efficiency:start -->
+- Preserve useful agent fan-out. Give each expensive focused validation command and external wait one owner; the integration owner reviews that evidence and runs the repository-required aggregate or final gate once after convergence. Reuse evidence only for the exact Git tree, command, lockfiles, toolchain, relevant environment, and validity period, and never to skip a required final integration, merge, release, deployment, or production-verification gate. On Hraness development machines, use `$hra-local-efficiency` and the installed host scheduler for heavyweight top-level commands when available.
+<!-- hra-local-efficiency:end -->
