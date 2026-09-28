@@ -1,7 +1,7 @@
 {
   "name": "@hraness/types",
   "version": "0.1.1",
-  "description": "A small TypeScript utility-type foundation.",
+  "description": "Declaration-only TypeScript types: the type-fest surface, a readonly NonEmptyArray, and an opt-in ts-reset entrypoint.",
   "license": "MIT",
   "type": "module",
   "sideEffects": false,

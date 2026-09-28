@@ -1,6 +1,6 @@
-# Types
+# @hraness/types
 
-Model a constraint once, then let TypeScript carry it through every Hraness project. `@hraness/types` is a declaration-only package that combines the public `type-fest` type surface, a readonly `NonEmptyArray`, and an opt-in strict ambient reset.
+`@hraness/types` is a declaration-only TypeScript package. It bundles the public `type-fest` types, a readonly `NonEmptyArray`, and an opt-in entrypoint for the `@total-typescript/ts-reset` corrections to built-in types.
 
 It ships no JavaScript and has no runtime entrypoint.
 
@@ -122,3 +122,5 @@ Report suspected vulnerabilities privately as described in [SECURITY.md](./SECUR
 ## License
 
 MIT
+
+Maintained by [Hraness](https://hraness.com).
