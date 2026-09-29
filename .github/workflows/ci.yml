@@ -33,12 +33,6 @@ jobs:
           key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
           restore-keys: bun-${{ runner.os }}-
       - run: bun install --frozen-lockfile --ignore-scripts
-      - name: Save Bun cache
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ~/.bun/install/cache
-          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
       - run: bun run check
       - run: |
           generated_status="$(git status --porcelain --untracked-files=all -- bun.lock)"
@@ -47,6 +41,13 @@ jobs:
             exit 1
           fi
       - run: bun pm pack --dry-run --ignore-scripts
+      # Save only after a fully verified main commit.
+      - name: Save Bun cache
+        if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
 
   required:
     name: Required
