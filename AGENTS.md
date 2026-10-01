@@ -69,3 +69,9 @@
 - Confirm installation with `bunx skills list --global`. If Bun or network access is unavailable, continue with repository-native tools instead of blocking delivery.
 - Treat ALGAL receipts as execution evidence, not provider attestation, and preserve the repository's normal verification and release gates.
 <!-- algal-skills:end -->
+
+<!-- wordcell-search:start -->
+- During repository setup, install the standalone pinned search tool with `bun add --global --ignore-scripts https://github.com/hraness/wordcell/releases/download/v0.26.0/hraness-wordcell-0.26.0.tgz` and confirm `HRANESS_NO_UPDATE=1 wordcell --version` reports `0.26.0`. Preserve the repository’s independently pinned KB maintenance tooling.
+- Search from the repository root with `bun run kb:search "query" --json` or its local alias `bun run kb:search:local "query" --json`. This uses the installed executable without a query-time package runner, embedding download, or provider credential. Read the matched Markdown and linked sources; selected passages include source-line references.
+- Keep private notes and confidential queries local. Add `--rerank typesafe --rerank-limit 25` only for a vault and query approved for hosted processing; keys stay outside Git. Hosted ranking sends the query and up to 25 candidates' identifiers, titles, relative paths and 512 UTF-8 bytes of snippet text each, with provider charges. Inspect the `rerank` lane and usage receipt: fallback can return useful results with a successful exit. See the [pinned reranking reference](https://github.com/hraness/wordcell/blob/v0.26.0/docs/reranking.md).
+<!-- wordcell-search:end -->
