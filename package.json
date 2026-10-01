@@ -44,7 +44,8 @@
     "kb:check:lane": "bunx --bun --package https://github.com/hraness/wordcell/releases/download/v0.24.0/hraness-wordcell-0.24.0.tgz wordcell check --root kb --no-catalog",
     "kb:check": "bunx --bun --package https://github.com/hraness/wordcell/releases/download/v0.24.0/hraness-wordcell-0.24.0.tgz wordcell check --root kb && bunx --bun --package https://github.com/hraness/wordcell/releases/download/v0.24.0/hraness-wordcell-0.24.0.tgz wordcell agents check --root kb --repo .",
     "kb:catalog": "bunx --bun --package https://github.com/hraness/wordcell/releases/download/v0.24.0/hraness-wordcell-0.24.0.tgz wordcell catalog --root kb",
-    "kb:search": "bunx --bun --package https://github.com/hraness/wordcell/releases/download/v0.24.0/hraness-wordcell-0.24.0.tgz wordcell search --root kb --mode exact --selected-passage",
+    "kb:search": "HRANESS_NO_UPDATE=1 wordcell search --root kb --mode exact --selected-passage",
+    "kb:search:local": "HRANESS_NO_UPDATE=1 wordcell search --root kb --mode exact --selected-passage",
     "check": "bun run typecheck && bun run test:package && bun run test",
     "prepack": "bun run check"
   },
