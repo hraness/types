@@ -37,7 +37,7 @@
 - Run `bun run kb:check:lane` in an independent KB lane. The integrating agent runs `bun run kb:refresh` and `bun run kb:check`.
 - Treat this repository as the complete project. Files and Git prose may use only its public names, paths, commands, and examples.
 - Run `bun run check` before handing off a change.
-- Treat a `v*` tag as a release request. Keep the tag equal to `v<package.json version>` on `main`, use strictly increasing stable versions, and verify the checks-gated immutable GitHub Release before creating another tag.
+- Treat a `v*` tag as a release request. Keep the tag equal to `v<package.json version>` on `main`, use strictly increasing stable versions, and verify the checks-gated immutable GitHub Release before creating another tag. Merging a `package.json` version bump to `main` creates its annotated tag automatically once CI passes (`.github/workflows/auto-tag.yml`); pushing the tag by hand still works.
 
 <!-- hraness-public-copy:start -->
 - Public copy (websites, READMEs, docs, package and GitHub descriptions, CLI help, `llms.txt`, generated pages) follows `STYLE.md`, synced from hraness/.github. Text a model writes for publication also follows `GENERATION_STYLE.md`.
