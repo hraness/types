@@ -72,6 +72,16 @@ import "@hraness/types/reset";
 
 The reset is deliberately separate. Importing the root entrypoint does not alter global declarations.
 
+## Fix common integration errors
+
+| Symptom | What to change |
+| --- | --- |
+| Your bundler tries to load JavaScript from `@hraness/types` | Use `import type` for root exports. The package has declarations, not runtime values. |
+| An ordinary `string[]` does not assign to `NonEmptyArray<string>` | Establish that the array has a first item in your consuming code. Do not cast unknown data to bypass validation. |
+| Built-in types change in an unrelated workspace project | Check which TypeScript program includes your reset declaration file. Keep the reset import in the project that needs it. |
+
+Use the [two-entrypoint reference](#use-two-declaration-entrypoints) to choose whether you want utility types alone or the ambient reset too.
+
 ## Know the boundary
 
 Types describe values after TypeScript has accepted them. They do not parse a network response, validate JSON, sanitize input, or make an unchecked cast safe. Start foreign runtime data as `unknown`, validate it in the consuming project, and apply these types to the validated result.
